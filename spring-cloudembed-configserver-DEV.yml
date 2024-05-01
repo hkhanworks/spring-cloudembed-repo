@@ -1,0 +1,34 @@
+#########################################
+### Spring Cloud Config Server
+#########################################
+spring:
+  cloud:
+    config:
+      server:
+        composite:
+          - type: git
+            repos:
+              DEV:
+                pattern: ',DEV' # Match profile composite,DEV
+                                #ALWAYS PLACE DEV PROFILES AT END
+                                # TODO: When we move to AppService use 'DEV' only.
+                skipSslValidation: true
+                uri: https://github.com/hkhanworks/spring-cloudembed-repo.git
+                default-label: main
+                searchPaths: '{application}'
+                
+                
+logging:
+  pattern:
+    file: '%d{MM-dd-yy HH:mm:ss.SSS} [%thread] %-5level [%33.33logger{5}] [${spring.application.name},%X{traceId:-},%X{spanId:-},%X{errorRef:-}]: %msg%n'
+  file:
+    name: './log/${spring.application.name}.log'
+  logback:
+    rollingpolicy:
+      max-file-size: 20MB
+      total-size-cap: 1GB
+      max-history: 5
+  level:
+    root: warn
+    org:
+      springframework: warn                
