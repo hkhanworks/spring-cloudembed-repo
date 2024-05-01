@@ -15,5 +15,7 @@ spring:
                 skipSslValidation: true
                 uri: https://github.com/hkhanworks/spring-cloudembed-repo.git
                 default-label: main
+#                searchPaths: 'global-properties,{application}'
                 searchPaths: '{application}'
+
                 
