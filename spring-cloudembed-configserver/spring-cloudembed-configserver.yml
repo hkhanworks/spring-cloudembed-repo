@@ -15,6 +15,7 @@ spring:
                 uri: https://github.com/hkhanworks/spring-cloudembed-repo.git
                 default-label: main
                 searchPaths: '{application}'
+#                searchPaths: 'global-properties,{application}'
 
 # Embedded tomcat Access logs
 server:

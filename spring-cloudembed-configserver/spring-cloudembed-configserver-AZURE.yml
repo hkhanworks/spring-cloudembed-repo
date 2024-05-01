@@ -17,18 +17,3 @@ spring:
                 default-label: main
                 searchPaths: '{application}'
                 
-                
-logging:
-  pattern:
-    file: '%d{MM-dd-yy HH:mm:ss.SSS} [%thread] %-5level [%33.33logger{5}] [${spring.application.name},%X{traceId:-},%X{spanId:-},%X{errorRef:-}]: %msg%n'
-  file:
-    name: './log/${spring.application.name}.log'
-  logback:
-    rollingpolicy:
-      max-file-size: 20MB
-      total-size-cap: 1GB
-      max-history: 5
-  level:
-    root: warn
-    org:
-      springframework: warn                
